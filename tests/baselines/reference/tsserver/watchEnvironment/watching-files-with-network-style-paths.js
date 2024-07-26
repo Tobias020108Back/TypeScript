@@ -81,20 +81,20 @@ c:/myprojects/project/x.js (Open) *new*
     containingProjects: 1
         /dev/null/inferredProject1* *default*
 
-TI:: [hh:mm:ss:mss] Global cache location 'c:/a/data', safe file path '/safeList.json', types map path /typesMap.json
-TI:: [hh:mm:ss:mss] Processing cache location 'c:/a/data'
-TI:: [hh:mm:ss:mss] Trying to find 'c:/a/data/package.json'...
-TI:: [hh:mm:ss:mss] Finished processing cache location 'c:/a/data'
-TI:: [hh:mm:ss:mss] Npm config file: c:/a/data/package.json
-TI:: [hh:mm:ss:mss] Npm config file: 'c:/a/data/package.json' is missing, creating new one...
+TI:: [hh:mm:ss:mss] Global cache location 'c:/a/globalcache/data', safe file path '/safeList.json', types map path /typesMap.json
+TI:: [hh:mm:ss:mss] Processing cache location 'c:/a/globalcache/data'
+TI:: [hh:mm:ss:mss] Trying to find 'c:/a/globalcache/data/package.json'...
+TI:: [hh:mm:ss:mss] Finished processing cache location 'c:/a/globalcache/data'
+TI:: [hh:mm:ss:mss] Npm config file: c:/a/globalcache/data/package.json
+TI:: [hh:mm:ss:mss] Npm config file: 'c:/a/globalcache/data/package.json' is missing, creating new one...
 TI:: [hh:mm:ss:mss] Updating types-registry npm package...
 TI:: [hh:mm:ss:mss] npm install --ignore-scripts types-registry@latest
 TI:: [hh:mm:ss:mss] Updated types-registry npm package
 TI:: typing installer creation complete
-//// [c:/a/data/package.json]
+//// [c:/a/globalcache/data/package.json]
 { "private": true }
 
-//// [c:/a/data/node_modules/types-registry/index.json]
+//// [c:/a/globalcache/data/node_modules/types-registry/index.json]
 {
   "entries": {}
 }
@@ -305,20 +305,20 @@ ScriptInfos::
     containingProjects: 1
         /dev/null/inferredProject1* *default*
 
-TI:: [hh:mm:ss:mss] Global cache location '//vda1cs4850/a/data', safe file path '/safeList.json', types map path /typesMap.json
-TI:: [hh:mm:ss:mss] Processing cache location '//vda1cs4850/a/data'
-TI:: [hh:mm:ss:mss] Trying to find '//vda1cs4850/a/data/package.json'...
-TI:: [hh:mm:ss:mss] Finished processing cache location '//vda1cs4850/a/data'
-TI:: [hh:mm:ss:mss] Npm config file: //vda1cs4850/a/data/package.json
-TI:: [hh:mm:ss:mss] Npm config file: '//vda1cs4850/a/data/package.json' is missing, creating new one...
+TI:: [hh:mm:ss:mss] Global cache location '//vda1cs4850/a/globalcache/data', safe file path '/safeList.json', types map path /typesMap.json
+TI:: [hh:mm:ss:mss] Processing cache location '//vda1cs4850/a/globalcache/data'
+TI:: [hh:mm:ss:mss] Trying to find '//vda1cs4850/a/globalcache/data/package.json'...
+TI:: [hh:mm:ss:mss] Finished processing cache location '//vda1cs4850/a/globalcache/data'
+TI:: [hh:mm:ss:mss] Npm config file: //vda1cs4850/a/globalcache/data/package.json
+TI:: [hh:mm:ss:mss] Npm config file: '//vda1cs4850/a/globalcache/data/package.json' is missing, creating new one...
 TI:: [hh:mm:ss:mss] Updating types-registry npm package...
 TI:: [hh:mm:ss:mss] npm install --ignore-scripts types-registry@latest
 TI:: [hh:mm:ss:mss] Updated types-registry npm package
 TI:: typing installer creation complete
-//// [//vda1cs4850/a/data/package.json]
+//// [//vda1cs4850/a/globalcache/data/package.json]
 { "private": true }
 
-//// [//vda1cs4850/a/data/node_modules/types-registry/index.json]
+//// [//vda1cs4850/a/globalcache/data/node_modules/types-registry/index.json]
 {
   "entries": {}
 }
@@ -537,20 +537,20 @@ ScriptInfos::
     containingProjects: 1
         /dev/null/inferredProject1* *default*
 
-TI:: [hh:mm:ss:mss] Global cache location '//vda1cs4850/a/data', safe file path '/safeList.json', types map path /typesMap.json
-TI:: [hh:mm:ss:mss] Processing cache location '//vda1cs4850/a/data'
-TI:: [hh:mm:ss:mss] Trying to find '//vda1cs4850/a/data/package.json'...
-TI:: [hh:mm:ss:mss] Finished processing cache location '//vda1cs4850/a/data'
-TI:: [hh:mm:ss:mss] Npm config file: //vda1cs4850/a/data/package.json
-TI:: [hh:mm:ss:mss] Npm config file: '//vda1cs4850/a/data/package.json' is missing, creating new one...
+TI:: [hh:mm:ss:mss] Global cache location '//vda1cs4850/a/globalcache/data', safe file path '/safeList.json', types map path /typesMap.json
+TI:: [hh:mm:ss:mss] Processing cache location '//vda1cs4850/a/globalcache/data'
+TI:: [hh:mm:ss:mss] Trying to find '//vda1cs4850/a/globalcache/data/package.json'...
+TI:: [hh:mm:ss:mss] Finished processing cache location '//vda1cs4850/a/globalcache/data'
+TI:: [hh:mm:ss:mss] Npm config file: //vda1cs4850/a/globalcache/data/package.json
+TI:: [hh:mm:ss:mss] Npm config file: '//vda1cs4850/a/globalcache/data/package.json' is missing, creating new one...
 TI:: [hh:mm:ss:mss] Updating types-registry npm package...
 TI:: [hh:mm:ss:mss] npm install --ignore-scripts types-registry@latest
 TI:: [hh:mm:ss:mss] Updated types-registry npm package
 TI:: typing installer creation complete
-//// [//vda1cs4850/a/data/package.json]
+//// [//vda1cs4850/a/globalcache/data/package.json]
 { "private": true }
 
-//// [//vda1cs4850/a/data/node_modules/types-registry/index.json]
+//// [//vda1cs4850/a/globalcache/data/node_modules/types-registry/index.json]
 {
   "entries": {}
 }
@@ -777,20 +777,20 @@ c:/users/username/myprojects/project/x.js (Open) *new*
     containingProjects: 1
         /dev/null/inferredProject1* *default*
 
-TI:: [hh:mm:ss:mss] Global cache location 'c:/a/data', safe file path '/safeList.json', types map path /typesMap.json
-TI:: [hh:mm:ss:mss] Processing cache location 'c:/a/data'
-TI:: [hh:mm:ss:mss] Trying to find 'c:/a/data/package.json'...
-TI:: [hh:mm:ss:mss] Finished processing cache location 'c:/a/data'
-TI:: [hh:mm:ss:mss] Npm config file: c:/a/data/package.json
-TI:: [hh:mm:ss:mss] Npm config file: 'c:/a/data/package.json' is missing, creating new one...
+TI:: [hh:mm:ss:mss] Global cache location 'c:/a/globalcache/data', safe file path '/safeList.json', types map path /typesMap.json
+TI:: [hh:mm:ss:mss] Processing cache location 'c:/a/globalcache/data'
+TI:: [hh:mm:ss:mss] Trying to find 'c:/a/globalcache/data/package.json'...
+TI:: [hh:mm:ss:mss] Finished processing cache location 'c:/a/globalcache/data'
+TI:: [hh:mm:ss:mss] Npm config file: c:/a/globalcache/data/package.json
+TI:: [hh:mm:ss:mss] Npm config file: 'c:/a/globalcache/data/package.json' is missing, creating new one...
 TI:: [hh:mm:ss:mss] Updating types-registry npm package...
 TI:: [hh:mm:ss:mss] npm install --ignore-scripts types-registry@latest
 TI:: [hh:mm:ss:mss] Updated types-registry npm package
 TI:: typing installer creation complete
-//// [c:/a/data/package.json]
+//// [c:/a/globalcache/data/package.json]
 { "private": true }
 
-//// [c:/a/data/node_modules/types-registry/index.json]
+//// [c:/a/globalcache/data/node_modules/types-registry/index.json]
 {
   "entries": {}
 }
@@ -1017,20 +1017,20 @@ ScriptInfos::
     containingProjects: 1
         /dev/null/inferredProject1* *default*
 
-TI:: [hh:mm:ss:mss] Global cache location '//vda1cs4850/a/data', safe file path '/safeList.json', types map path /typesMap.json
-TI:: [hh:mm:ss:mss] Processing cache location '//vda1cs4850/a/data'
-TI:: [hh:mm:ss:mss] Trying to find '//vda1cs4850/a/data/package.json'...
-TI:: [hh:mm:ss:mss] Finished processing cache location '//vda1cs4850/a/data'
-TI:: [hh:mm:ss:mss] Npm config file: //vda1cs4850/a/data/package.json
-TI:: [hh:mm:ss:mss] Npm config file: '//vda1cs4850/a/data/package.json' is missing, creating new one...
+TI:: [hh:mm:ss:mss] Global cache location '//vda1cs4850/a/globalcache/data', safe file path '/safeList.json', types map path /typesMap.json
+TI:: [hh:mm:ss:mss] Processing cache location '//vda1cs4850/a/globalcache/data'
+TI:: [hh:mm:ss:mss] Trying to find '//vda1cs4850/a/globalcache/data/package.json'...
+TI:: [hh:mm:ss:mss] Finished processing cache location '//vda1cs4850/a/globalcache/data'
+TI:: [hh:mm:ss:mss] Npm config file: //vda1cs4850/a/globalcache/data/package.json
+TI:: [hh:mm:ss:mss] Npm config file: '//vda1cs4850/a/globalcache/data/package.json' is missing, creating new one...
 TI:: [hh:mm:ss:mss] Updating types-registry npm package...
 TI:: [hh:mm:ss:mss] npm install --ignore-scripts types-registry@latest
 TI:: [hh:mm:ss:mss] Updated types-registry npm package
 TI:: typing installer creation complete
-//// [//vda1cs4850/a/data/package.json]
+//// [//vda1cs4850/a/globalcache/data/package.json]
 { "private": true }
 
-//// [//vda1cs4850/a/data/node_modules/types-registry/index.json]
+//// [//vda1cs4850/a/globalcache/data/node_modules/types-registry/index.json]
 {
   "entries": {}
 }

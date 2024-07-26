@@ -35,20 +35,20 @@ import { jsonToReadableText } from "../helpers.js";
 describe("unittests:: tsserver:: typingsInstaller:: local module", () => {
     it("should not be picked up", () => {
         const f1 = {
-            path: "/a/app.js",
+            path: "/user/username/projects/project/app.js",
             content: "const c = require('./config');",
         };
         const f2 = {
-            path: "/a/config.js",
+            path: "/user/username/projects/project/config.js",
             content: "export let x = 1",
         };
-        const typesCache = "/cache";
+        const typesCache = "/a/globalcache/cache";
         const typesConfig = {
             path: typesCache + "/node_modules/@types/config/index.d.ts",
             content: "export let y: number;",
         };
         const config = {
-            path: "/a/jsconfig.json",
+            path: "/user/username/projects/project/jsconfig.json",
             content: jsonToReadableText({
                 compilerOptions: { moduleResolution: "commonjs" },
                 typeAcquisition: { enable: true },
@@ -70,11 +70,11 @@ describe("unittests:: tsserver:: typingsInstaller:: local module", () => {
 describe("unittests:: tsserver:: typingsInstaller:: General functionality", () => {
     it("configured projects (typings installed) 1", () => {
         const file1 = {
-            path: "/a/b/app.js",
+            path: "/user/username/projects/project/app.js",
             content: "",
         };
         const tsconfig = {
-            path: "/a/b/tsconfig.json",
+            path: "/user/username/projects/project/tsconfig.json",
             content: jsonToReadableText({
                 compilerOptions: {
                     allowJs: true,
@@ -85,7 +85,7 @@ describe("unittests:: tsserver:: typingsInstaller:: General functionality", () =
             }),
         };
         const packageJson = {
-            path: "/a/b/package.json",
+            path: "/user/username/projects/project/package.json",
             content: jsonToReadableText({
                 name: "test",
                 dependencies: {
@@ -95,7 +95,7 @@ describe("unittests:: tsserver:: typingsInstaller:: General functionality", () =
         };
 
         const jquery = {
-            path: "/a/data/node_modules/@types/jquery/index.d.ts",
+            path: "/a/globalcache/data/node_modules/@types/jquery/index.d.ts",
             content: "declare const $: { x: number }",
         };
         const host = createServerHost([file1, tsconfig, packageJson]);
@@ -118,11 +118,11 @@ describe("unittests:: tsserver:: typingsInstaller:: General functionality", () =
 
     it("inferred project (typings installed)", () => {
         const file1 = {
-            path: "/a/b/app.js",
+            path: "/user/username/projects/project/app.js",
             content: "",
         };
         const packageJson = {
-            path: "/a/b/package.json",
+            path: "/user/username/projects/project/package.json",
             content: jsonToReadableText({
                 name: "test",
                 dependencies: {
@@ -132,7 +132,7 @@ describe("unittests:: tsserver:: typingsInstaller:: General functionality", () =
         };
 
         const jquery = {
-            path: "/a/data/node_modules/@types/jquery/index.d.ts",
+            path: "/a/globalcache/data/node_modules/@types/jquery/index.d.ts",
             content: "declare const $: { x: number }",
         };
         const host = createServerHost([file1, packageJson]);
@@ -154,7 +154,7 @@ describe("unittests:: tsserver:: typingsInstaller:: General functionality", () =
         // Tests:
         // Exclude file with disableFilenameBasedTypeAcquisition:true
         const jqueryJs = {
-            path: "/a/b/jquery.js",
+            path: "/user/username/projects/project/jquery.js",
             content: "",
         };
 
@@ -179,12 +179,12 @@ describe("unittests:: tsserver:: typingsInstaller:: General functionality", () =
 
     it("external project - no type acquisition, no .d.ts/js files", () => {
         const file1 = {
-            path: "/a/b/app.ts",
+            path: "/user/username/projects/project/app.ts",
             content: "",
         };
         const host = createServerHost([file1]);
 
-        const projectFileName = "/a/app/test.csproj";
+        const projectFileName = "/user/username/projects/app/test.csproj";
         const session = new TestSession(host);
         openExternalProjectForSession({
             projectFileName,
@@ -198,15 +198,15 @@ describe("unittests:: tsserver:: typingsInstaller:: General functionality", () =
 
     it("external project - deduplicate from local @types packages", () => {
         const appJs = {
-            path: "/a/b/app.js",
+            path: "/user/username/projects/project/app.js",
             content: "",
         };
         const nodeDts = {
-            path: "/node_modules/@types/node/index.d.ts",
+            path: "/user/username/projects/node_modules/@types/node/index.d.ts",
             content: "declare var node;",
         };
         const host = createServerHost([appJs, nodeDts]);
-        const projectFileName = "/a/app/test.csproj";
+        const projectFileName = "/user/username/projects/app/test.csproj";
         const session = new TestSession({
             host,
             installAction: "nothing should get installed",
@@ -223,11 +223,11 @@ describe("unittests:: tsserver:: typingsInstaller:: General functionality", () =
 
     it("external project - no auto in typing acquisition, no .d.ts/js files", () => {
         const file1 = {
-            path: "/a/b/app.ts",
+            path: "/user/username/projects/project/app.ts",
             content: "",
         };
         const host = createServerHost([file1]);
-        const projectFileName = "/a/app/test.csproj";
+        const projectFileName = "/user/username/projects/app/test.csproj";
         const session = new TestSession({
             host,
             typesRegistry: "jquery",
@@ -245,15 +245,15 @@ describe("unittests:: tsserver:: typingsInstaller:: General functionality", () =
 
     it("external project - autoDiscovery = true, no .d.ts/js files", () => {
         const file1 = {
-            path: "/a/b/app.ts",
+            path: "/user/username/projects/project/app.ts",
             content: "",
         };
         const jquery = {
-            path: "/a/data/node_modules/@types/jquery/index.d.ts",
+            path: "/a/globalcache/data/node_modules/@types/jquery/index.d.ts",
             content: "declare const $: { x: number }",
         };
         const host = createServerHost([file1]);
-        const projectFileName = "/a/app/test.csproj";
+        const projectFileName = "/user/username/projects/app/test.csproj";
         const session = new TestSession({
             host,
             installAction: [jquery],
@@ -279,28 +279,28 @@ describe("unittests:: tsserver:: typingsInstaller:: General functionality", () =
         // 2. loose files names are matched against safe list for typings if
         //    this is a JS project (only js, jsx, d.ts files are present)
         const lodashJs = {
-            path: "/a/b/lodash.js",
+            path: "/user/username/projects/project//lodash.js",
             content: "",
         };
         const file2Jsx = {
-            path: "/a/b/file2.jsx",
+            path: "/user/username/projects/project//file2.jsx",
             content: "",
         };
         const file3dts = {
-            path: "/a/b/file3.d.ts",
+            path: "/user/username/projects/project//file3.d.ts",
             content: "",
         };
         const reactDts = {
-            path: "/a/data/node_modules/@types/react/index.d.ts",
+            path: "/a/globalcache/data/node_modules/@types/react/index.d.ts",
             content: "declare const react: { x: number }",
         };
         const lodashDts = {
-            path: "/a/data/node_modules/@types/lodash/index.d.ts",
+            path: "/a/globalcache/data/node_modules/@types/lodash/index.d.ts",
             content: "declare const lodash: { x: number }",
         };
 
         const host = createServerHost([lodashJs, file2Jsx, file3dts, customTypesMap]);
-        const projectFileName = "/a/app/test.csproj";
+        const projectFileName = "/user/username/projects/app/test.csproj";
         const session = new TestSession({
             host,
             installAction: [lodashDts, reactDts],
@@ -323,12 +323,12 @@ describe("unittests:: tsserver:: typingsInstaller:: General functionality", () =
         // Tests:
         // Exclude
         const jqueryJs = {
-            path: "/a/b/jquery.js",
+            path: "/user/username/projects/project//jquery.js",
             content: "",
         };
 
         const host = createServerHost([jqueryJs]);
-        const projectFileName = "/a/app/test.csproj";
+        const projectFileName = "/user/username/projects/app/test.csproj";
         const session = new TestSession({
             host,
             installAction: true,
@@ -348,12 +348,12 @@ describe("unittests:: tsserver:: typingsInstaller:: General functionality", () =
         // Tests:
         // Exclude file with disableFilenameBasedTypeAcquisition:true
         const jqueryJs = {
-            path: "/a/b/jquery.js",
+            path: "/user/username/projects/project/jquery.js",
             content: "",
         };
 
         const host = createServerHost([jqueryJs]);
-        const projectFileName = "/a/app/test.csproj";
+        const projectFileName = "/user/username/projects/app/test.csproj";
         const session = new TestSession({
             host,
             installAction: true,
@@ -375,16 +375,16 @@ describe("unittests:: tsserver:: typingsInstaller:: General functionality", () =
         // Tests:
         // 1. No typings are included for JS projects when the project contains ts files
         const jqueryJs = {
-            path: "/a/b/jquery.js",
+            path: "/user/username/projects/project/jquery.js",
             content: "",
         };
         const file2Ts = {
-            path: "/a/b/file2.ts",
+            path: "/user/username/projects/project/file2.ts",
             content: "",
         };
 
         const host = createServerHost([jqueryJs, file2Ts]);
-        const projectFileName = "/a/app/test.csproj";
+        const projectFileName = "/user/username/projects/app/test.csproj";
         const session = new TestSession({
             host,
             installAction: true,
@@ -406,19 +406,19 @@ describe("unittests:: tsserver:: typingsInstaller:: General functionality", () =
         // 2. Types for safelist matches are not included when they also appear in the type acquisition exclude list
         // 3. Multiple includes and excludes are respected in type acquisition
         const lodashJs = {
-            path: "/a/b/lodash.js",
+            path: "/user/username/projects/project//lodash.js",
             content: "",
         };
         const commanderJs = {
-            path: "/a/b/commander.js",
+            path: "/user/username/projects/project//commander.js",
             content: "",
         };
         const file3dts = {
-            path: "/a/b/file3.d.ts",
+            path: "/user/username/projects/project//file3.d.ts",
             content: "",
         };
         const packageJson = {
-            path: "/a/b/package.json",
+            path: "/user/username/projects/project//package.json",
             content: jsonToReadableText({
                 name: "test",
                 dependencies: {
@@ -428,24 +428,24 @@ describe("unittests:: tsserver:: typingsInstaller:: General functionality", () =
         };
 
         const commander = {
-            path: "/a/data/node_modules/@types/commander/index.d.ts",
+            path: "/a/globalcache/data/node_modules/@types/commander/index.d.ts",
             content: "declare const commander: { x: number }",
         };
         const express = {
-            path: "/a/data/node_modules/@types/express/index.d.ts",
+            path: "/a/globalcache/data/node_modules/@types/express/index.d.ts",
             content: "declare const express: { x: number }",
         };
         const jquery = {
-            path: "/a/data/node_modules/@types/jquery/index.d.ts",
+            path: "/a/globalcache/data/node_modules/@types/jquery/index.d.ts",
             content: "declare const jquery: { x: number }",
         };
         const moment = {
-            path: "/a/data/node_modules/@types/moment/index.d.ts",
+            path: "/a/globalcache/data/node_modules/@types/moment/index.d.ts",
             content: "declare const moment: { x: number }",
         };
 
         const host = createServerHost([lodashJs, commanderJs, file3dts, packageJson, customTypesMap]);
-        const projectFileName = "/a/app/test.csproj";
+        const projectFileName = "/user/username/projects/app/test.csproj";
         const session = new TestSession({
             host,
             installAction: [commander, express, jquery, moment],
@@ -471,19 +471,19 @@ describe("unittests:: tsserver:: typingsInstaller:: General functionality", () =
 
     it("Throttle - delayed typings to install", () => {
         const lodashJs = {
-            path: "/a/b/lodash.js",
+            path: "/user/username/projects/project//lodash.js",
             content: "",
         };
         const commanderJs = {
-            path: "/a/b/commander.js",
+            path: "/user/username/projects/project//commander.js",
             content: "",
         };
         const file3 = {
-            path: "/a/b/file3.d.ts",
+            path: "/user/username/projects/project//file3.d.ts",
             content: "",
         };
         const packageJson = {
-            path: "/a/b/package.json",
+            path: "/user/username/projects/project//package.json",
             content: jsonToReadableText({
                 name: "test",
                 dependencies: {
@@ -493,28 +493,28 @@ describe("unittests:: tsserver:: typingsInstaller:: General functionality", () =
         };
 
         const commander = {
-            path: "/a/data/node_modules/@types/commander/index.d.ts",
+            path: "/a/globalcache/data/node_modules/@types/commander/index.d.ts",
             content: "declare const commander: { x: number }",
         };
         const express = {
-            path: "/a/data/node_modules/@types/express/index.d.ts",
+            path: "/a/globalcache/data/node_modules/@types/express/index.d.ts",
             content: "declare const express: { x: number }",
         };
         const jquery = {
-            path: "/a/data/node_modules/@types/jquery/index.d.ts",
+            path: "/a/globalcache/data/node_modules/@types/jquery/index.d.ts",
             content: "declare const jquery: { x: number }",
         };
         const moment = {
-            path: "/a/data/node_modules/@types/moment/index.d.ts",
+            path: "/a/globalcache/data/node_modules/@types/moment/index.d.ts",
             content: "declare const moment: { x: number }",
         };
         const lodash = {
-            path: "/a/data/node_modules/@types/lodash/index.d.ts",
+            path: "/a/globalcache/data/node_modules/@types/lodash/index.d.ts",
             content: "declare const lodash: { x: number }",
         };
 
         const host = createServerHost([lodashJs, commanderJs, file3, packageJson, customTypesMap]);
-        const projectFileName = "/a/app/test.csproj";
+        const projectFileName = "/user/username/projects/app/test.csproj";
         const session = new TestSession({
             host,
             installAction: [commander, express, jquery, moment, lodash],
@@ -536,45 +536,45 @@ describe("unittests:: tsserver:: typingsInstaller:: General functionality", () =
     describe("throttled testing", () => {
         function setup() {
             const lodashJs = {
-                path: "/a/b/lodash.js",
+                path: "/user/username/projects/project/lodash.js",
                 content: "",
             };
             const commanderJs = {
-                path: "/a/b/commander.js",
+                path: "/user/username/projects/project/commander.js",
                 content: "",
             };
             const file3 = {
-                path: "/a/b/file3.d.ts",
+                path: "/user/username/projects/project/file3.d.ts",
                 content: "",
             };
 
             const commander: FileWithPackageName = {
-                path: "/a/data/node_modules/@types/commander/index.d.ts",
+                path: "/a/globalcache/data/node_modules/@types/commander/index.d.ts",
                 content: "declare const commander: { x: number }",
                 package: "commander",
             };
             const jquery: FileWithPackageName = {
-                path: "/a/data/node_modules/@types/jquery/index.d.ts",
+                path: "/a/globalcache/data/node_modules/@types/jquery/index.d.ts",
                 content: "declare const jquery: { x: number }",
                 package: "jquery",
             };
             const lodash: FileWithPackageName = {
-                path: "/a/data/node_modules/@types/lodash/index.d.ts",
+                path: "/a/globalcache/data/node_modules/@types/lodash/index.d.ts",
                 content: "declare const lodash: { x: number }",
                 package: "lodash",
             };
             const cordova: FileWithPackageName = {
-                path: "/a/data/node_modules/@types/cordova/index.d.ts",
+                path: "/a/globalcache/data/node_modules/@types/cordova/index.d.ts",
                 content: "declare const cordova: { x: number }",
                 package: "cordova",
             };
             const grunt: FileWithPackageName = {
-                path: "/a/data/node_modules/@types/grunt/index.d.ts",
+                path: "/a/globalcache/data/node_modules/@types/grunt/index.d.ts",
                 content: "declare const grunt: { x: number }",
                 package: "grunt",
             };
             const gulp: FileWithPackageName = {
-                path: "/a/data/node_modules/@types/gulp/index.d.ts",
+                path: "/a/globalcache/data/node_modules/@types/gulp/index.d.ts",
                 content: "declare const gulp: { x: number }",
                 package: "gulp",
             };
@@ -592,7 +592,7 @@ describe("unittests:: tsserver:: typingsInstaller:: General functionality", () =
                 throttleLimit: 1,
                 typesRegistry: ["commander", "jquery", "lodash", "cordova", "gulp", "grunt"],
             });
-            const projectFileName1 = "/a/app/test1.csproj";
+            const projectFileName1 = "/user/username/projects/app/test1.csproj";
             openExternalProjectForSession({
                 projectFileName: projectFileName1,
                 options: { allowJS: true, moduleResolution: ts.ModuleResolutionKind.Node10 },
@@ -601,7 +601,7 @@ describe("unittests:: tsserver:: typingsInstaller:: General functionality", () =
             }, session);
 
             // Create project #2 with 2 typings
-            const projectFileName2 = "/a/app/test2.csproj";
+            const projectFileName2 = "/user/username/projects/app/test2.csproj";
             openExternalProjectForSession({
                 projectFileName: projectFileName2,
                 options: { allowJS: true, moduleResolution: ts.ModuleResolutionKind.Node10 },
@@ -624,7 +624,7 @@ describe("unittests:: tsserver:: typingsInstaller:: General functionality", () =
                 throttledRequests: 1,
                 typesRegistry: ["commander", "jquery", "lodash", "cordova", "gulp", "grunt"],
             });
-            const projectFileName1 = "/a/app/test1.csproj";
+            const projectFileName1 = "/user/username/projects/app/test1.csproj";
             openExternalProjectForSession({
                 projectFileName: projectFileName1,
                 options: { allowJS: true, moduleResolution: ts.ModuleResolutionKind.Node10 },
@@ -636,7 +636,7 @@ describe("unittests:: tsserver:: typingsInstaller:: General functionality", () =
             host.runPendingInstalls(); // Actual install for project1
 
             const id = host.getNextTimeoutId();
-            const projectFileName2 = "/a/app/test2.csproj";
+            const projectFileName2 = "/user/username/projects/project/app/test2.csproj";
             openExternalProjectForSession({
                 projectFileName: projectFileName2,
                 options: { allowJS: true, moduleResolution: ts.ModuleResolutionKind.Node10 },
@@ -658,7 +658,7 @@ describe("unittests:: tsserver:: typingsInstaller:: General functionality", () =
                 throttledRequests: 1,
                 typesRegistry: ["commander", "jquery", "lodash", "cordova", "gulp", "grunt"],
             });
-            const projectFileName1 = "/a/app/test1.csproj";
+            const projectFileName1 = "/user/username/projects/app/test1.csproj";
             openExternalProjectForSession({
                 projectFileName: projectFileName1,
                 options: { allowJS: true, moduleResolution: ts.ModuleResolutionKind.Node10 },
@@ -667,7 +667,7 @@ describe("unittests:: tsserver:: typingsInstaller:: General functionality", () =
             }, session);
 
             // this will be deferred
-            const projectFileName2 = "/a/app/test2.csproj";
+            const projectFileName2 = "/user/username/projects/app/test2.csproj";
             openExternalProjectForSession({
                 projectFileName: projectFileName2,
                 options: { allowJS: true, moduleResolution: ts.ModuleResolutionKind.Node10 },
@@ -692,7 +692,7 @@ describe("unittests:: tsserver:: typingsInstaller:: General functionality", () =
                 throttledRequests: 1,
                 typesRegistry: ["commander", "jquery", "lodash", "cordova", "gulp", "grunt"],
             });
-            const projectFileName1 = "/a/app/test1.csproj";
+            const projectFileName1 = "/user/username/projects/app/test1.csproj";
             openExternalProjectForSession({
                 projectFileName: projectFileName1,
                 options: { allowJS: true, moduleResolution: ts.ModuleResolutionKind.Node10 },
@@ -701,7 +701,7 @@ describe("unittests:: tsserver:: typingsInstaller:: General functionality", () =
             }, session);
 
             // Create project #2 with 2 typings - this will be deferred
-            const projectFileName2 = "/a/app/test2.csproj";
+            const projectFileName2 = "/user/username/projects/project/app/test2.csproj";
             openExternalProjectForSession({
                 projectFileName: projectFileName2,
                 options: { allowJS: true, moduleResolution: ts.ModuleResolutionKind.Node10 },
@@ -733,7 +733,7 @@ describe("unittests:: tsserver:: typingsInstaller:: General functionality", () =
                 throttledRequests: 1,
                 typesRegistry: ["commander", "jquery", "lodash", "cordova", "gulp", "grunt"],
             });
-            const projectFileName1 = "/a/app/test1.csproj";
+            const projectFileName1 = "/user/username/projects/app/test1.csproj";
             openExternalProjectForSession({
                 projectFileName: projectFileName1,
                 options: { allowJS: true, moduleResolution: ts.ModuleResolutionKind.Node10 },
@@ -741,7 +741,7 @@ describe("unittests:: tsserver:: typingsInstaller:: General functionality", () =
                 typeAcquisition: { include: ["jquery"] },
             }, session);
 
-            const projectFileName2 = "/a/app/test2.csproj";
+            const projectFileName2 = "/user/username/projects/app/test2.csproj";
             openExternalProjectForSession({
                 projectFileName: projectFileName2,
                 options: { allowJS: true, moduleResolution: ts.ModuleResolutionKind.Node10 },
@@ -749,7 +749,7 @@ describe("unittests:: tsserver:: typingsInstaller:: General functionality", () =
                 typeAcquisition: { include: ["grunt", "gulp"] },
             }, session);
 
-            const projectFileName3 = "/a/app/test3.csproj";
+            const projectFileName3 = "/user/username/projects/app/test3.csproj";
             openExternalProjectForSession({
                 projectFileName: projectFileName3,
                 options: { allowJS: true, moduleResolution: ts.ModuleResolutionKind.Node10 },
@@ -773,11 +773,11 @@ describe("unittests:: tsserver:: typingsInstaller:: General functionality", () =
 
     it("configured scoped name projects discover from node_modules", () => {
         const app = {
-            path: "/app.js",
+            path: "/user/username/projects/project/app.js",
             content: "",
         };
         const pkgJson = {
-            path: "/package.json",
+            path: "/user/username/projects/project/package.json",
             content: jsonToReadableText({
                 dependencies: {
                     "@zkat/cacache": "1.0.0",
@@ -785,30 +785,30 @@ describe("unittests:: tsserver:: typingsInstaller:: General functionality", () =
             }),
         };
         const jsconfig = {
-            path: "/jsconfig.json",
+            path: "/user/username/projects/project/jsconfig.json",
             content: jsonToReadableText({}),
         };
         // Should only accept direct dependencies.
         const commander = {
-            path: "/node_modules/commander/index.js",
+            path: "/user/username/projects/project/node_modules/commander/index.js",
             content: "",
         };
         const commanderPackage = {
-            path: "/node_modules/commander/package.json",
+            path: "/user/username/projects/project/node_modules/commander/package.json",
             content: jsonToReadableText({
                 name: "commander",
             }),
         };
         const cacache = {
-            path: "/node_modules/@zkat/cacache/index.js",
+            path: "/user/username/projects/project/node_modules/@zkat/cacache/index.js",
             content: "",
         };
         const cacachePackage = {
-            path: "/node_modules/@zkat/cacache/package.json",
+            path: "/user/username/projects/project/node_modules/@zkat/cacache/package.json",
             content: jsonToReadableText({ name: "@zkat/cacache" }),
         };
         const cacacheDTS = {
-            path: "/tmp/node_modules/@types/zkat__cacache/index.d.ts",
+            path: "/tmp/globalcache/cache/node_modules/@types/zkat__cacache/index.d.ts",
             content: "",
         };
         const host = createServerHost([app, jsconfig, pkgJson, commander, commanderPackage, cacache, cacachePackage]);
@@ -816,7 +816,7 @@ describe("unittests:: tsserver:: typingsInstaller:: General functionality", () =
             host,
             useSingleInferredProject: true,
             installAction: [cacacheDTS],
-            globalTypingsCacheLocation: "/tmp",
+            globalTypingsCacheLocation: "/tmp/globalcache/cache",
             typesRegistry: ["zkat__cacache", "nested", "commander"],
         });
         openFilesForSession([app], session);
@@ -836,11 +836,11 @@ describe("unittests:: tsserver:: typingsInstaller:: General functionality", () =
     ) {
         it(subScenario, () => {
             const app = {
-                path: "/app.js",
+                path: "/user/username/projects/project/app.js",
                 content: appJsContent || "",
             };
             const pkgJson = {
-                path: "/package.json",
+                path: "/user/username/projects/project/package.json",
                 content: jsonToReadableText({
                     dependencies: {
                         jquery: "1.0.0",
@@ -848,35 +848,35 @@ describe("unittests:: tsserver:: typingsInstaller:: General functionality", () =
                 }),
             };
             const jsconfig = {
-                path: "/jsconfig.json",
+                path: "/user/username/projects/project/jsconfig.json",
                 content: jsonToReadableText(jsconfigContent || {}),
             };
             // Should only accept direct dependencies.
             const commander = {
-                path: "/node_modules/commander/index.js",
+                path: "/user/username/projects/project/node_modules/commander/index.js",
                 content: "",
             };
             const commanderPackage = {
-                path: "/node_modules/commander/package.json",
+                path: "/user/username/projects/project/node_modules/commander/package.json",
                 content: jsonToReadableText({
                     name: "commander",
                 }),
             };
             const jquery = {
-                path: "/node_modules/jquery/index.js",
+                path: "/user/username/projects/project/node_modules/jquery/index.js",
                 content: "",
             };
             const jqueryPackage = {
-                path: "/node_modules/jquery/package.json",
+                path: "/user/username/projects/project/node_modules/jquery/package.json",
                 content: jsonToReadableText({ name: "jquery" }),
             };
             // Should not search deeply in node_modules.
             const nestedPackage = {
-                path: "/node_modules/jquery/nested/package.json",
+                path: "/user/username/projects/project/node_modules/jquery/nested/package.json",
                 content: jsonToReadableText({ name: "nested" }),
             };
             const jqueryDTS = {
-                path: "/tmp/node_modules/@types/jquery/index.d.ts",
+                path: "/tmp/globalcache/cache/node_modules/@types/jquery/index.d.ts",
                 content: "",
             };
             const host = createServerHost([app, jsconfig, pkgJson, commander, commanderPackage, jquery, jqueryPackage, nestedPackage]);
@@ -884,7 +884,7 @@ describe("unittests:: tsserver:: typingsInstaller:: General functionality", () =
                 host,
                 useSingleInferredProject: true,
                 installAction: [jqueryDTS],
-                globalTypingsCacheLocation: "/tmp",
+                globalTypingsCacheLocation: "/tmp/globalcache/cache",
                 typesRegistry: ["jquery", "nested", "commander"],
             });
             openFilesForSession([app], session);
@@ -915,23 +915,23 @@ describe("unittests:: tsserver:: typingsInstaller:: General functionality", () =
 
     it("configured projects discover from bower_components", () => {
         const app = {
-            path: "/app.js",
+            path: "/user/username/projects/project/app.js",
             content: "",
         };
         const jsconfig = {
-            path: "/jsconfig.json",
+            path: "/user/username/projects/project/jsconfig.json",
             content: jsonToReadableText({}),
         };
         const jquery = {
-            path: "/bower_components/jquery/index.js",
+            path: "/user/username/projects/project/bower_components/jquery/index.js",
             content: "",
         };
         const jqueryPackage = {
-            path: "/bower_components/jquery/bower.json",
+            path: "/user/username/projects/project/bower_components/jquery/bower.json",
             content: jsonToReadableText({ name: "jquery" }),
         };
         const jqueryDTS = {
-            path: "/tmp/node_modules/@types/jquery/index.d.ts",
+            path: "/tmp/globalcache/cache/node_modules/@types/jquery/index.d.ts",
             content: "",
         };
         const host = createServerHost([app, jsconfig, jquery, jqueryPackage]);
@@ -939,7 +939,7 @@ describe("unittests:: tsserver:: typingsInstaller:: General functionality", () =
             host,
             useSingleInferredProject: true,
             installAction: [jqueryDTS],
-            globalTypingsCacheLocation: "/tmp",
+            globalTypingsCacheLocation: "/tmp/globalcache/cache",
             typesRegistry: "jquery",
         });
         openFilesForSession([app], session);
@@ -952,15 +952,15 @@ describe("unittests:: tsserver:: typingsInstaller:: General functionality", () =
 
     it("configured projects discover from bower.json", () => {
         const app = {
-            path: "/app.js",
+            path: "/user/username/projects/project/app.js",
             content: "",
         };
         const jsconfig = {
-            path: "/jsconfig.json",
+            path: "/user/username/projects/project/jsconfig.json",
             content: jsonToReadableText({}),
         };
         const bowerJson = {
-            path: "/bower.json",
+            path: "/user/username/projects/project/bower.json",
             content: jsonToReadableText({
                 dependencies: {
                     jquery: "^3.1.0",
@@ -968,7 +968,7 @@ describe("unittests:: tsserver:: typingsInstaller:: General functionality", () =
             }),
         };
         const jqueryDTS = {
-            path: "/tmp/node_modules/@types/jquery/index.d.ts",
+            path: "/tmp/globalcache/cache/node_modules/@types/jquery/index.d.ts",
             content: "",
         };
         const host = createServerHost([app, jsconfig, bowerJson]);
@@ -976,7 +976,7 @@ describe("unittests:: tsserver:: typingsInstaller:: General functionality", () =
             host,
             useSingleInferredProject: true,
             installAction: [jqueryDTS],
-            globalTypingsCacheLocation: "/tmp",
+            globalTypingsCacheLocation: "/tmp/globalcache/cache",
             typesRegistry: "jquery",
         });
         openFilesForSession([app], session);
@@ -1000,7 +1000,7 @@ describe("unittests:: tsserver:: typingsInstaller:: General functionality", () =
             path: brokenPackageJson.path,
             content: `{ "dependencies": { "commander": "0.0.2" } }`,
         };
-        const cachePath = "/a/cache/";
+        const cachePath = "/a/globalcache/cache/";
         const commander = {
             path: cachePath + "node_modules/@types/commander/index.d.ts",
             content: "export let x: number",
@@ -1029,7 +1029,7 @@ describe("unittests:: tsserver:: typingsInstaller:: General functionality", () =
                 import * as commander from "commander";
                 import * as component from "@ember/component";`,
         };
-        const cachePath = "/a/cache";
+        const cachePath = "/a/globalcache/cache";
         const node = {
             path: cachePath + "/node_modules/@types/node/index.d.ts",
             content: "export let x: number",
@@ -1105,7 +1105,7 @@ describe("unittests:: tsserver:: typingsInstaller:: General functionality", () =
         const session = new TestSession({
             host,
             installAction: true,
-            globalTypingsCacheLocation: "/tmp",
+            globalTypingsCacheLocation: "/tmp/globalcache/cache",
             typesRegistry: "foo",
         });
         openFilesForSession([f1], session);
@@ -1213,12 +1213,12 @@ describe("unittests:: tsserver:: typingsInstaller:: General functionality", () =
         };
 
         const jquery: FileWithPackageName = {
-            path: "/a/data/node_modules/@types/jquery/index.d.ts",
+            path: "/a/globalcache/data/node_modules/@types/jquery/index.d.ts",
             content: "declare const $: { x: number }",
             package: "jquery",
         };
         const commander: FileWithPackageName = {
-            path: "/a/data/node_modules/@types/commander/index.d.ts",
+            path: "/a/globalcache/data/node_modules/@types/commander/index.d.ts",
             content: "export let x: number",
             package: "commander",
         };
@@ -1254,11 +1254,11 @@ describe("unittests:: tsserver:: typingsInstaller:: General functionality", () =
             }),
         };
         const jquery = {
-            path: "/a/data/node_modules/@types/jquery/index.d.ts",
+            path: "/a/globalcache/data/node_modules/@types/jquery/index.d.ts",
             content: "declare const $: { x: number }",
         };
         const cacheConfig = {
-            path: "/a/data/package.json",
+            path: "/a/globalcache/data/package.json",
             content: jsonToReadableText({
                 dependencies: {
                     "types-registry": "^0.1.317",
@@ -1269,7 +1269,7 @@ describe("unittests:: tsserver:: typingsInstaller:: General functionality", () =
             }),
         };
         const cacheLockConfig = {
-            path: "/a/data/package-lock.json",
+            path: "/a/globalcache/data/package-lock.json",
             content: jsonToReadableText({
                 dependencies: {
                     "@types/jquery": {
@@ -1306,7 +1306,7 @@ describe("unittests:: tsserver:: typingsInstaller:: General functionality", () =
             }),
         };
         const cacheConfig = {
-            path: "/a/data/package.json",
+            path: "/a/globalcache/data/package.json",
             content: jsonToReadableText({
                 dependencies: {
                     "types-registry": "^0.1.317",
@@ -1317,7 +1317,7 @@ describe("unittests:: tsserver:: typingsInstaller:: General functionality", () =
             }),
         };
         const cacheLockConfig = {
-            path: "/a/data/package-lock.json",
+            path: "/a/globalcache/data/package-lock.json",
             content: jsonToReadableText({
                 dependencies: {
                     "@types/jquery": {
@@ -1327,7 +1327,7 @@ describe("unittests:: tsserver:: typingsInstaller:: General functionality", () =
             }),
         };
         const jquery = {
-            path: "/a/data/node_modules/@types/jquery/index.d.ts",
+            path: "/a/globalcache/data/node_modules/@types/jquery/index.d.ts",
             content: "declare const $: { x: number }",
         };
         const host = createServerHost([file1, packageJson, cacheConfig, cacheLockConfig, jquery]);
@@ -1408,7 +1408,7 @@ describe("unittests:: tsserver:: typingsInstaller:: Invalid package names", () =
         const session = new TestSession({
             host,
             installAction: "installWorker should not be invoked",
-            globalTypingsCacheLocation: "/tmp",
+            globalTypingsCacheLocation: "/tmp/globalcache/cache",
         });
         openFilesForSession([f1], session);
         baselineTsserverLogs("typingsInstaller", "should not initialize invaalid package names", session);
@@ -1732,7 +1732,7 @@ describe("unittests:: tsserver:: typingsInstaller:: telemetry events", () => {
             path: "/a/package.json",
             content: jsonToReadableText({ dependencies: { commander: "1.0.0" } }),
         };
-        const cachePath = "/a/cache/";
+        const cachePath = "/a/globalcache/cache/";
         const commander = {
             path: cachePath + "node_modules/@types/commander/index.d.ts",
             content: "export let x: number",
@@ -1773,7 +1773,7 @@ describe("unittests:: tsserver:: typingsInstaller:: progress notifications", () 
                 },
             }),
         };
-        const cachePath = "/a/cache/";
+        const cachePath = "/a/globalcache/cache/";
         const commander = {
             path: cachePath + "node_modules/@types/commander/index.d.ts",
             content: "export let x: number",
@@ -1802,7 +1802,7 @@ describe("unittests:: tsserver:: typingsInstaller:: progress notifications", () 
             path: "/a/package.json",
             content: jsonToReadableText({ dependencies: { commander: "1.0.0" } }),
         };
-        const cachePath = "/a/cache/";
+        const cachePath = "/a/globalcache/cache/";
         const host = createServerHost([f1, packageFile]);
         const session = new TestSession({
             host,
@@ -2333,7 +2333,7 @@ describe("unittests:: tsserver:: typingsInstaller:: npm installation command", (
 });
 
 describe("unittests:: tsserver:: typingsInstaller:: recomputing resolutions of unresolved imports", () => {
-    const globalTypingsCacheLocation = "/tmp";
+    const globalTypingsCacheLocation = "/tmp/globalcache/cache";
     const appPath = "/a/b/app.js" as ts.Path;
     function verifyResolvedModuleOfFooo(project: ts.server.Project) {
         ts.server.updateProjectIfDirty(project);

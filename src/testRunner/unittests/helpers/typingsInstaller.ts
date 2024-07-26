@@ -187,7 +187,7 @@ export class TestTypingsInstallerAdapter extends ts.server.TypingsInstallerAdapt
     readonly throttledRequests: number | undefined;
 
     constructor(options: TestTypingsInstallerOptions) {
-        const globalTypingsCacheLocation = options.globalTypingsCacheLocation || options.host.getHostSpecificPath("/a/data");
+        const globalTypingsCacheLocation = options.globalTypingsCacheLocation || options.host.getHostSpecificPath("/a/globalcache/data");
         super(
             /*telemetryEnabled*/ false,
             options.throttledRequests === undefined ?

@@ -12,10 +12,10 @@ Before request
   }
 }
 
-//// [/a/data/node_modules/@types/jquery/index.d.ts]
+//// [/a/globalcache/data/node_modules/@types/jquery/index.d.ts]
 declare const $: { x: number }
 
-//// [/a/data/package.json]
+//// [/a/globalcache/data/package.json]
 {
   "dependencies": {
     "types-registry": "^0.1.317"
@@ -25,7 +25,7 @@ declare const $: { x: number }
   }
 }
 
-//// [/a/data/package-lock.json]
+//// [/a/globalcache/data/package-lock.json]
 {
   "dependencies": {
     "@types/jquery": {
@@ -74,10 +74,10 @@ ScriptInfos::
     containingProjects: 1
         /dev/null/inferredProject1* *default*
 
-TI:: [hh:mm:ss:mss] Global cache location '/a/data', safe file path '/safeList.json', types map path /typesMap.json
-TI:: [hh:mm:ss:mss] Processing cache location '/a/data'
-TI:: [hh:mm:ss:mss] Trying to find '/a/data/package.json'...
-TI:: [hh:mm:ss:mss] Loaded content of '/a/data/package.json':
+TI:: [hh:mm:ss:mss] Global cache location '/a/globalcache/data', safe file path '/safeList.json', types map path /typesMap.json
+TI:: [hh:mm:ss:mss] Processing cache location '/a/globalcache/data'
+TI:: [hh:mm:ss:mss] Trying to find '/a/globalcache/data/package.json'...
+TI:: [hh:mm:ss:mss] Loaded content of '/a/globalcache/data/package.json':
     {
       "dependencies": {
         "types-registry": "^0.1.317"
@@ -86,7 +86,7 @@ TI:: [hh:mm:ss:mss] Loaded content of '/a/data/package.json':
         "@types/jquery": "^1.0.0"
       }
     }
-TI:: [hh:mm:ss:mss] Loaded content of '/a/data/package-lock.json':
+TI:: [hh:mm:ss:mss] Loaded content of '/a/globalcache/data/package-lock.json':
     {
       "dependencies": {
         "@types/jquery": {
@@ -94,14 +94,14 @@ TI:: [hh:mm:ss:mss] Loaded content of '/a/data/package-lock.json':
         }
       }
     }
-TI:: [hh:mm:ss:mss] Adding entry into typings cache: 'jquery' => '/a/data/node_modules/@types/jquery/index.d.ts'
-TI:: [hh:mm:ss:mss] Finished processing cache location '/a/data'
-TI:: [hh:mm:ss:mss] Npm config file: /a/data/package.json
+TI:: [hh:mm:ss:mss] Adding entry into typings cache: 'jquery' => '/a/globalcache/data/node_modules/@types/jquery/index.d.ts'
+TI:: [hh:mm:ss:mss] Finished processing cache location '/a/globalcache/data'
+TI:: [hh:mm:ss:mss] Npm config file: /a/globalcache/data/package.json
 TI:: [hh:mm:ss:mss] Updating types-registry npm package...
 TI:: [hh:mm:ss:mss] npm install --ignore-scripts types-registry@latest
 TI:: [hh:mm:ss:mss] Updated types-registry npm package
 TI:: typing installer creation complete
-//// [/a/data/node_modules/types-registry/index.json]
+//// [/a/globalcache/data/node_modules/types-registry/index.json]
 {
   "entries": {
     "jquery": {
@@ -180,7 +180,7 @@ Info seq  [hh:mm:ss:mss] Elapsed:: *ms DirectoryWatcher:: Added:: WatchInfo: /bo
 Info seq  [hh:mm:ss:mss] DirectoryWatcher:: Added:: WatchInfo: /node_modules 1 undefined Project: /dev/null/inferredProject1* WatchType: Directory location for typing installer
 Info seq  [hh:mm:ss:mss] Elapsed:: *ms DirectoryWatcher:: Added:: WatchInfo: /node_modules 1 undefined Project: /dev/null/inferredProject1* WatchType: Directory location for typing installer
 TI:: [hh:mm:ss:mss] Installing typings ["jquery"]
-TI:: [hh:mm:ss:mss] Npm config file: /a/data/package.json
+TI:: [hh:mm:ss:mss] Npm config file: /a/globalcache/data/package.json
 TI:: [hh:mm:ss:mss] Sending response:
     {
       "kind": "event::beginInstallTypes",
@@ -197,7 +197,7 @@ Info seq  [hh:mm:ss:mss] event:
         "eventId": 1
       }
     }
-TI:: [hh:mm:ss:mss] #1 with cwd: /a/data arguments: [
+TI:: [hh:mm:ss:mss] #1 with cwd: /a/globalcache/data arguments: [
   "@types/jquery@tsFakeMajor.Minor"
 ]
 Info seq  [hh:mm:ss:mss] Project '/dev/null/inferredProject1*' (Inferred)
@@ -256,7 +256,7 @@ TI:: Installation #1 with arguments:: [
 ] complete with success::true
 
 TI:: [hh:mm:ss:mss] Installed typings ["@types/jquery@tsFakeMajor.Minor"]
-TI:: [hh:mm:ss:mss] Installed typing files ["/a/data/node_modules/@types/jquery/index.d.ts"]
+TI:: [hh:mm:ss:mss] Installed typing files ["/a/globalcache/data/node_modules/@types/jquery/index.d.ts"]
 TI:: [hh:mm:ss:mss] Sending response:
     {
       "projectName": "/dev/null/inferredProject1*",
@@ -274,7 +274,7 @@ TI:: [hh:mm:ss:mss] Sending response:
         "maxNodeModuleJsDepth": 2
       },
       "typings": [
-        "/a/data/node_modules/@types/jquery/index.d.ts"
+        "/a/globalcache/data/node_modules/@types/jquery/index.d.ts"
       ],
       "unresolvedImports": [],
       "kind": "action::set"
@@ -302,7 +302,7 @@ Info seq  [hh:mm:ss:mss] event:
           "maxNodeModuleJsDepth": 2
         },
         "typings": [
-          "/a/data/node_modules/@types/jquery/index.d.ts"
+          "/a/globalcache/data/node_modules/@types/jquery/index.d.ts"
         ],
         "unresolvedImports": [],
         "kind": "action::set"
@@ -354,12 +354,12 @@ Info seq  [hh:mm:ss:mss] Finishing updateGraphWorker: Project: /dev/null/inferre
 Info seq  [hh:mm:ss:mss] Project '/dev/null/inferredProject1*' (Inferred)
 Info seq  [hh:mm:ss:mss] 	Files (2)
 	/a/b/app.js SVC-1-0 ""
-	/a/data/node_modules/@types/jquery/index.d.ts Text-1 "declare const $: { x: number }"
+	/a/globalcache/data/node_modules/@types/jquery/index.d.ts Text-1 "declare const $: { x: number }"
 
 
 	a/b/app.js
 	  Root file specified for compilation
-	a/data/node_modules/@types/jquery/index.d.ts
+	a/globalcache/data/node_modules/@types/jquery/index.d.ts
 	  Root file specified for compilation
 
 Info seq  [hh:mm:ss:mss] -----------------------------------------------
@@ -368,7 +368,7 @@ TI:: [hh:mm:ss:mss] Got install request
       "projectName": "/dev/null/inferredProject1*",
       "fileNames": [
         "/a/b/app.js",
-        "/a/data/node_modules/@types/jquery/index.d.ts"
+        "/a/globalcache/data/node_modules/@types/jquery/index.d.ts"
       ],
       "compilerOptions": {
         "target": 1,
@@ -393,7 +393,7 @@ TI:: [hh:mm:ss:mss] Inferred typings from unresolved imports: []
 TI:: [hh:mm:ss:mss] Finished typings discovery:
     {
       "cachedTypingPaths": [
-        "/a/data/node_modules/@types/jquery/index.d.ts"
+        "/a/globalcache/data/node_modules/@types/jquery/index.d.ts"
       ],
       "newTypingNames": [],
       "filesToWatch": [
@@ -426,7 +426,7 @@ TI:: [hh:mm:ss:mss] Sending response:
         "maxNodeModuleJsDepth": 2
       },
       "typings": [
-        "/a/data/node_modules/@types/jquery/index.d.ts"
+        "/a/globalcache/data/node_modules/@types/jquery/index.d.ts"
       ],
       "unresolvedImports": [],
       "kind": "action::set"
@@ -452,7 +452,7 @@ Info seq  [hh:mm:ss:mss] event:
           "maxNodeModuleJsDepth": 2
         },
         "typings": [
-          "/a/data/node_modules/@types/jquery/index.d.ts"
+          "/a/globalcache/data/node_modules/@types/jquery/index.d.ts"
         ],
         "unresolvedImports": [],
         "kind": "action::set"
@@ -501,7 +501,7 @@ ScriptInfos::
     version: SVC-1-0
     containingProjects: 1
         /dev/null/inferredProject1* *default*
-/a/data/node_modules/@types/jquery/index.d.ts *new*
+/a/globalcache/data/node_modules/@types/jquery/index.d.ts *new*
     version: Text-1
     containingProjects: 1
         /dev/null/inferredProject1*

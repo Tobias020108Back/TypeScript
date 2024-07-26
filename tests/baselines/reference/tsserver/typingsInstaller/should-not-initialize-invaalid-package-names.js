@@ -51,20 +51,20 @@ ScriptInfos::
     containingProjects: 1
         /dev/null/inferredProject1* *default*
 
-TI:: [hh:mm:ss:mss] Global cache location '/tmp', safe file path '/safeList.json', types map path /typesMap.json
-TI:: [hh:mm:ss:mss] Processing cache location '/tmp'
-TI:: [hh:mm:ss:mss] Trying to find '/tmp/package.json'...
-TI:: [hh:mm:ss:mss] Finished processing cache location '/tmp'
-TI:: [hh:mm:ss:mss] Npm config file: /tmp/package.json
-TI:: [hh:mm:ss:mss] Npm config file: '/tmp/package.json' is missing, creating new one...
+TI:: [hh:mm:ss:mss] Global cache location '/tmp/globalcache/cache', safe file path '/safeList.json', types map path /typesMap.json
+TI:: [hh:mm:ss:mss] Processing cache location '/tmp/globalcache/cache'
+TI:: [hh:mm:ss:mss] Trying to find '/tmp/globalcache/cache/package.json'...
+TI:: [hh:mm:ss:mss] Finished processing cache location '/tmp/globalcache/cache'
+TI:: [hh:mm:ss:mss] Npm config file: /tmp/globalcache/cache/package.json
+TI:: [hh:mm:ss:mss] Npm config file: '/tmp/globalcache/cache/package.json' is missing, creating new one...
 TI:: [hh:mm:ss:mss] Updating types-registry npm package...
 TI:: [hh:mm:ss:mss] npm install --ignore-scripts types-registry@latest
 TI:: [hh:mm:ss:mss] Updated types-registry npm package
 TI:: typing installer creation complete
-//// [/tmp/package.json]
+//// [/tmp/globalcache/cache/package.json]
 { "private": true }
 
-//// [/tmp/node_modules/types-registry/index.json]
+//// [/tmp/globalcache/cache/node_modules/types-registry/index.json]
 {
   "entries": {}
 }

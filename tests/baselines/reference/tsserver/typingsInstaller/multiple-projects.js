@@ -142,20 +142,20 @@ ScriptInfos::
     containingProjects: 1
         /user/username/projects/project/tsconfig.json *default*
 
-TI:: [hh:mm:ss:mss] Global cache location '/a/data', safe file path '/safeList.json', types map path /typesMap.json
-TI:: [hh:mm:ss:mss] Processing cache location '/a/data'
-TI:: [hh:mm:ss:mss] Trying to find '/a/data/package.json'...
-TI:: [hh:mm:ss:mss] Finished processing cache location '/a/data'
-TI:: [hh:mm:ss:mss] Npm config file: /a/data/package.json
-TI:: [hh:mm:ss:mss] Npm config file: '/a/data/package.json' is missing, creating new one...
+TI:: [hh:mm:ss:mss] Global cache location '/a/globalcache/data', safe file path '/safeList.json', types map path /typesMap.json
+TI:: [hh:mm:ss:mss] Processing cache location '/a/globalcache/data'
+TI:: [hh:mm:ss:mss] Trying to find '/a/globalcache/data/package.json'...
+TI:: [hh:mm:ss:mss] Finished processing cache location '/a/globalcache/data'
+TI:: [hh:mm:ss:mss] Npm config file: /a/globalcache/data/package.json
+TI:: [hh:mm:ss:mss] Npm config file: '/a/globalcache/data/package.json' is missing, creating new one...
 TI:: [hh:mm:ss:mss] Updating types-registry npm package...
 TI:: [hh:mm:ss:mss] npm install --ignore-scripts types-registry@latest
 TI:: [hh:mm:ss:mss] Updated types-registry npm package
 TI:: typing installer creation complete
-//// [/a/data/package.json]
+//// [/a/globalcache/data/package.json]
 { "private": true }
 
-//// [/a/data/node_modules/types-registry/index.json]
+//// [/a/globalcache/data/node_modules/types-registry/index.json]
 {
   "entries": {
     "jquery": {
@@ -237,7 +237,7 @@ Info seq  [hh:mm:ss:mss] FileWatcher:: Added:: WatchInfo: /user/username/project
 Info seq  [hh:mm:ss:mss] DirectoryWatcher:: Added:: WatchInfo: /user/username/projects/project/node_modules 1 undefined Project: /user/username/projects/project/tsconfig.json WatchType: Directory location for typing installer
 Info seq  [hh:mm:ss:mss] Elapsed:: *ms DirectoryWatcher:: Added:: WatchInfo: /user/username/projects/project/node_modules 1 undefined Project: /user/username/projects/project/tsconfig.json WatchType: Directory location for typing installer
 TI:: [hh:mm:ss:mss] Installing typings ["jquery"]
-TI:: [hh:mm:ss:mss] Npm config file: /a/data/package.json
+TI:: [hh:mm:ss:mss] Npm config file: /a/globalcache/data/package.json
 TI:: [hh:mm:ss:mss] Sending response:
     {
       "kind": "event::beginInstallTypes",
@@ -254,7 +254,7 @@ Info seq  [hh:mm:ss:mss] event:
         "eventId": 1
       }
     }
-TI:: [hh:mm:ss:mss] #1 with cwd: /a/data arguments: [
+TI:: [hh:mm:ss:mss] #1 with cwd: /a/globalcache/data arguments: [
   "@types/jquery@tsFakeMajor.Minor"
 ]
 Info seq  [hh:mm:ss:mss] FileWatcher:: Added:: WatchInfo: /user/username/projects/project/package.json 250 undefined WatchType: package.json file
@@ -387,12 +387,12 @@ Before running PendingInstalls callback:: count: 1
 TI:: Installation #1 with arguments:: [
   "@types/jquery@tsFakeMajor.Minor"
 ] complete with success::true
-//// [/a/data/node_modules/@types/jquery/index.d.ts]
+//// [/a/globalcache/data/node_modules/@types/jquery/index.d.ts]
 declare const $: { x: number }
 
 
 TI:: [hh:mm:ss:mss] Installed typings ["@types/jquery@tsFakeMajor.Minor"]
-TI:: [hh:mm:ss:mss] Installed typing files ["/a/data/node_modules/@types/jquery/index.d.ts"]
+TI:: [hh:mm:ss:mss] Installed typing files ["/a/globalcache/data/node_modules/@types/jquery/index.d.ts"]
 TI:: [hh:mm:ss:mss] Sending response:
     {
       "projectName": "/user/username/projects/project/tsconfig.json",
@@ -407,7 +407,7 @@ TI:: [hh:mm:ss:mss] Sending response:
         "allowNonTsExtensions": true
       },
       "typings": [
-        "/a/data/node_modules/@types/jquery/index.d.ts"
+        "/a/globalcache/data/node_modules/@types/jquery/index.d.ts"
       ],
       "unresolvedImports": [],
       "kind": "action::set"
@@ -432,7 +432,7 @@ Info seq  [hh:mm:ss:mss] event:
           "allowNonTsExtensions": true
         },
         "typings": [
-          "/a/data/node_modules/@types/jquery/index.d.ts"
+          "/a/globalcache/data/node_modules/@types/jquery/index.d.ts"
         ],
         "unresolvedImports": [],
         "kind": "action::set"
@@ -485,14 +485,14 @@ Info seq  [hh:mm:ss:mss] Project '/user/username/projects/project/tsconfig.json'
 Info seq  [hh:mm:ss:mss] 	Files (3)
 	/a/lib/lib.d.ts Text-1 "/// <reference no-default-lib=\"true\"/>\ninterface Boolean {}\ninterface Function {}\ninterface CallableFunction {}\ninterface NewableFunction {}\ninterface IArguments {}\ninterface Number { toExponential: any; }\ninterface Object {}\ninterface RegExp {}\ninterface String { charAt: any; }\ninterface Array<T> { length: number; [n: number]: T; }"
 	/user/username/projects/project/app.js SVC-1-0 ""
-	/a/data/node_modules/@types/jquery/index.d.ts Text-1 "declare const $: { x: number }"
+	/a/globalcache/data/node_modules/@types/jquery/index.d.ts Text-1 "declare const $: { x: number }"
 
 
 	../../../../a/lib/lib.d.ts
 	  Default library for target 'es5'
 	app.js
 	  Matched by default include pattern '**/*'
-	../../../../a/data/node_modules/@types/jquery/index.d.ts
+	../../../../a/globalcache/data/node_modules/@types/jquery/index.d.ts
 	  Matched by default include pattern '**/*'
 
 Info seq  [hh:mm:ss:mss] -----------------------------------------------
@@ -502,7 +502,7 @@ TI:: [hh:mm:ss:mss] Got install request
       "fileNames": [
         "/a/lib/lib.d.ts",
         "/user/username/projects/project/app.js",
-        "/a/data/node_modules/@types/jquery/index.d.ts"
+        "/a/globalcache/data/node_modules/@types/jquery/index.d.ts"
       ],
       "compilerOptions": {
         "allowJs": true,
@@ -524,7 +524,7 @@ TI:: [hh:mm:ss:mss] Inferred typings from unresolved imports: []
 TI:: [hh:mm:ss:mss] Finished typings discovery:
     {
       "cachedTypingPaths": [
-        "/a/data/node_modules/@types/jquery/index.d.ts"
+        "/a/globalcache/data/node_modules/@types/jquery/index.d.ts"
       ],
       "newTypingNames": [],
       "filesToWatch": [
@@ -552,7 +552,7 @@ TI:: [hh:mm:ss:mss] Sending response:
         "allowNonTsExtensions": true
       },
       "typings": [
-        "/a/data/node_modules/@types/jquery/index.d.ts"
+        "/a/globalcache/data/node_modules/@types/jquery/index.d.ts"
       ],
       "unresolvedImports": [],
       "kind": "action::set"
@@ -575,7 +575,7 @@ Info seq  [hh:mm:ss:mss] event:
           "allowNonTsExtensions": true
         },
         "typings": [
-          "/a/data/node_modules/@types/jquery/index.d.ts"
+          "/a/globalcache/data/node_modules/@types/jquery/index.d.ts"
         ],
         "unresolvedImports": [],
         "kind": "action::set"
@@ -620,7 +620,7 @@ Projects::
     dirty: false *changed*
 
 ScriptInfos::
-/a/data/node_modules/@types/jquery/index.d.ts *new*
+/a/globalcache/data/node_modules/@types/jquery/index.d.ts *new*
     version: Text-1
     containingProjects: 1
         /user/username/projects/project/tsconfig.json
@@ -691,7 +691,7 @@ Projects::
     noOpenRef: true *changed*
 
 ScriptInfos::
-/a/data/node_modules/@types/jquery/index.d.ts
+/a/globalcache/data/node_modules/@types/jquery/index.d.ts
     version: Text-1
     containingProjects: 1
         /user/username/projects/project/tsconfig.json
@@ -810,7 +810,7 @@ Info seq  [hh:mm:ss:mss] FileWatcher:: Added:: WatchInfo: /user/username/project
 Info seq  [hh:mm:ss:mss] DirectoryWatcher:: Added:: WatchInfo: /user/username/projects/project2/node_modules 1 undefined Project: /user/username/projects/project2/tsconfig.json WatchType: Directory location for typing installer
 Info seq  [hh:mm:ss:mss] Elapsed:: *ms DirectoryWatcher:: Added:: WatchInfo: /user/username/projects/project2/node_modules 1 undefined Project: /user/username/projects/project2/tsconfig.json WatchType: Directory location for typing installer
 TI:: [hh:mm:ss:mss] Installing typings ["commander"]
-TI:: [hh:mm:ss:mss] Npm config file: /a/data/package.json
+TI:: [hh:mm:ss:mss] Npm config file: /a/globalcache/data/package.json
 TI:: [hh:mm:ss:mss] Sending response:
     {
       "kind": "event::beginInstallTypes",
@@ -827,7 +827,7 @@ Info seq  [hh:mm:ss:mss] event:
         "eventId": 2
       }
     }
-TI:: [hh:mm:ss:mss] #2 with cwd: /a/data arguments: [
+TI:: [hh:mm:ss:mss] #2 with cwd: /a/globalcache/data arguments: [
   "@types/commander@tsFakeMajor.Minor"
 ]
 Info seq  [hh:mm:ss:mss] FileWatcher:: Added:: WatchInfo: /user/username/projects/project2/package.json 250 undefined WatchType: package.json file
@@ -905,14 +905,14 @@ Info seq  [hh:mm:ss:mss] Project '/user/username/projects/project/tsconfig.json'
 Info seq  [hh:mm:ss:mss] 	Files (3)
 	/a/lib/lib.d.ts
 	/user/username/projects/project/app.js
-	/a/data/node_modules/@types/jquery/index.d.ts
+	/a/globalcache/data/node_modules/@types/jquery/index.d.ts
 
 
 	../../../../a/lib/lib.d.ts
 	  Default library for target 'es5'
 	app.js
 	  Matched by default include pattern '**/*'
-	../../../../a/data/node_modules/@types/jquery/index.d.ts
+	../../../../a/globalcache/data/node_modules/@types/jquery/index.d.ts
 	  Matched by default include pattern '**/*'
 
 Info seq  [hh:mm:ss:mss] -----------------------------------------------
@@ -1016,7 +1016,7 @@ Projects::
     projectProgramVersion: 1
 
 ScriptInfos::
-/a/data/node_modules/@types/jquery/index.d.ts *deleted*
+/a/globalcache/data/node_modules/@types/jquery/index.d.ts *deleted*
     version: Text-1
     containingProjects: 0 *changed*
         /user/username/projects/project/tsconfig.json *deleted*

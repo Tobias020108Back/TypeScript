@@ -56,20 +56,20 @@ ScriptInfos::
     containingProjects: 1
         /dev/null/inferredProject1* *default*
 
-TI:: [hh:mm:ss:mss] Global cache location '/tmp', safe file path '/safeList.json', types map path /typesMap.json
-TI:: [hh:mm:ss:mss] Processing cache location '/tmp'
-TI:: [hh:mm:ss:mss] Trying to find '/tmp/package.json'...
-TI:: [hh:mm:ss:mss] Finished processing cache location '/tmp'
-TI:: [hh:mm:ss:mss] Npm config file: /tmp/package.json
-TI:: [hh:mm:ss:mss] Npm config file: '/tmp/package.json' is missing, creating new one...
+TI:: [hh:mm:ss:mss] Global cache location '/tmp/globalcache/cache', safe file path '/safeList.json', types map path /typesMap.json
+TI:: [hh:mm:ss:mss] Processing cache location '/tmp/globalcache/cache'
+TI:: [hh:mm:ss:mss] Trying to find '/tmp/globalcache/cache/package.json'...
+TI:: [hh:mm:ss:mss] Finished processing cache location '/tmp/globalcache/cache'
+TI:: [hh:mm:ss:mss] Npm config file: /tmp/globalcache/cache/package.json
+TI:: [hh:mm:ss:mss] Npm config file: '/tmp/globalcache/cache/package.json' is missing, creating new one...
 TI:: [hh:mm:ss:mss] Updating types-registry npm package...
 TI:: [hh:mm:ss:mss] npm install --ignore-scripts types-registry@latest
 TI:: [hh:mm:ss:mss] Updated types-registry npm package
 TI:: typing installer creation complete
-//// [/tmp/package.json]
+//// [/tmp/globalcache/cache/package.json]
 { "private": true }
 
-//// [/tmp/node_modules/types-registry/index.json]
+//// [/tmp/globalcache/cache/node_modules/types-registry/index.json]
 {
   "entries": {
     "foo": {
@@ -146,7 +146,7 @@ Info seq  [hh:mm:ss:mss] Elapsed:: *ms DirectoryWatcher:: Added:: WatchInfo: /a/
 TI:: [hh:mm:ss:mss] Installing typings ["@bar/common","@bar/router","foo"]
 TI:: [hh:mm:ss:mss] '@bar/common':: Entry for package 'bar__common' does not exist in local types registry - skipping...
 TI:: [hh:mm:ss:mss] '@bar/router':: Entry for package 'bar__router' does not exist in local types registry - skipping...
-TI:: [hh:mm:ss:mss] Npm config file: /tmp/package.json
+TI:: [hh:mm:ss:mss] Npm config file: /tmp/globalcache/cache/package.json
 TI:: [hh:mm:ss:mss] Sending response:
     {
       "kind": "event::beginInstallTypes",
@@ -163,7 +163,7 @@ Info seq  [hh:mm:ss:mss] event:
         "eventId": 1
       }
     }
-TI:: [hh:mm:ss:mss] #1 with cwd: /tmp arguments: [
+TI:: [hh:mm:ss:mss] #1 with cwd: /tmp/globalcache/cache arguments: [
   "@types/foo@tsFakeMajor.Minor"
 ]
 Info seq  [hh:mm:ss:mss] Project '/dev/null/inferredProject1*' (Inferred)

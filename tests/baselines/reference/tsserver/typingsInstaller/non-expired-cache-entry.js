@@ -12,7 +12,7 @@ Before request
   }
 }
 
-//// [/a/data/package.json]
+//// [/a/globalcache/data/package.json]
 {
   "dependencies": {
     "types-registry": "^0.1.317"
@@ -22,7 +22,7 @@ Before request
   }
 }
 
-//// [/a/data/package-lock.json]
+//// [/a/globalcache/data/package-lock.json]
 {
   "dependencies": {
     "@types/jquery": {
@@ -31,7 +31,7 @@ Before request
   }
 }
 
-//// [/a/data/node_modules/@types/jquery/index.d.ts]
+//// [/a/globalcache/data/node_modules/@types/jquery/index.d.ts]
 declare const $: { x: number }
 
 
@@ -74,10 +74,10 @@ ScriptInfos::
     containingProjects: 1
         /dev/null/inferredProject1* *default*
 
-TI:: [hh:mm:ss:mss] Global cache location '/a/data', safe file path '/safeList.json', types map path /typesMap.json
-TI:: [hh:mm:ss:mss] Processing cache location '/a/data'
-TI:: [hh:mm:ss:mss] Trying to find '/a/data/package.json'...
-TI:: [hh:mm:ss:mss] Loaded content of '/a/data/package.json':
+TI:: [hh:mm:ss:mss] Global cache location '/a/globalcache/data', safe file path '/safeList.json', types map path /typesMap.json
+TI:: [hh:mm:ss:mss] Processing cache location '/a/globalcache/data'
+TI:: [hh:mm:ss:mss] Trying to find '/a/globalcache/data/package.json'...
+TI:: [hh:mm:ss:mss] Loaded content of '/a/globalcache/data/package.json':
     {
       "dependencies": {
         "types-registry": "^0.1.317"
@@ -86,7 +86,7 @@ TI:: [hh:mm:ss:mss] Loaded content of '/a/data/package.json':
         "@types/jquery": "^1.3.0"
       }
     }
-TI:: [hh:mm:ss:mss] Loaded content of '/a/data/package-lock.json':
+TI:: [hh:mm:ss:mss] Loaded content of '/a/globalcache/data/package-lock.json':
     {
       "dependencies": {
         "@types/jquery": {
@@ -94,14 +94,14 @@ TI:: [hh:mm:ss:mss] Loaded content of '/a/data/package-lock.json':
         }
       }
     }
-TI:: [hh:mm:ss:mss] Adding entry into typings cache: 'jquery' => '/a/data/node_modules/@types/jquery/index.d.ts'
-TI:: [hh:mm:ss:mss] Finished processing cache location '/a/data'
-TI:: [hh:mm:ss:mss] Npm config file: /a/data/package.json
+TI:: [hh:mm:ss:mss] Adding entry into typings cache: 'jquery' => '/a/globalcache/data/node_modules/@types/jquery/index.d.ts'
+TI:: [hh:mm:ss:mss] Finished processing cache location '/a/globalcache/data'
+TI:: [hh:mm:ss:mss] Npm config file: /a/globalcache/data/package.json
 TI:: [hh:mm:ss:mss] Updating types-registry npm package...
 TI:: [hh:mm:ss:mss] npm install --ignore-scripts types-registry@latest
 TI:: [hh:mm:ss:mss] Updated types-registry npm package
 TI:: typing installer creation complete
-//// [/a/data/node_modules/types-registry/index.json]
+//// [/a/globalcache/data/node_modules/types-registry/index.json]
 {
   "entries": {
     "jquery": {
@@ -149,7 +149,7 @@ TI:: [hh:mm:ss:mss] Inferred typings from unresolved imports: []
 TI:: [hh:mm:ss:mss] Finished typings discovery:
     {
       "cachedTypingPaths": [
-        "/a/data/node_modules/@types/jquery/index.d.ts"
+        "/a/globalcache/data/node_modules/@types/jquery/index.d.ts"
       ],
       "newTypingNames": [],
       "filesToWatch": [
@@ -196,7 +196,7 @@ TI:: [hh:mm:ss:mss] Sending response:
         "maxNodeModuleJsDepth": 2
       },
       "typings": [
-        "/a/data/node_modules/@types/jquery/index.d.ts"
+        "/a/globalcache/data/node_modules/@types/jquery/index.d.ts"
       ],
       "unresolvedImports": [],
       "kind": "action::set"
@@ -224,7 +224,7 @@ Info seq  [hh:mm:ss:mss] event:
           "maxNodeModuleJsDepth": 2
         },
         "typings": [
-          "/a/data/node_modules/@types/jquery/index.d.ts"
+          "/a/globalcache/data/node_modules/@types/jquery/index.d.ts"
         ],
         "unresolvedImports": [],
         "kind": "action::set"

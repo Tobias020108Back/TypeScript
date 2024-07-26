@@ -51,20 +51,20 @@ ScriptInfos::
     containingProjects: 1
         /dev/null/inferredProject1* *default*
 
-TI:: [hh:mm:ss:mss] Global cache location '/a/cache/', safe file path '/safeList.json', types map path /typesMap.json
-TI:: [hh:mm:ss:mss] Processing cache location '/a/cache/'
-TI:: [hh:mm:ss:mss] Trying to find '/a/cache/package.json'...
-TI:: [hh:mm:ss:mss] Finished processing cache location '/a/cache/'
-TI:: [hh:mm:ss:mss] Npm config file: /a/cache/package.json
-TI:: [hh:mm:ss:mss] Npm config file: '/a/cache/package.json' is missing, creating new one...
+TI:: [hh:mm:ss:mss] Global cache location '/a/globalcache/cache/', safe file path '/safeList.json', types map path /typesMap.json
+TI:: [hh:mm:ss:mss] Processing cache location '/a/globalcache/cache/'
+TI:: [hh:mm:ss:mss] Trying to find '/a/globalcache/cache/package.json'...
+TI:: [hh:mm:ss:mss] Finished processing cache location '/a/globalcache/cache/'
+TI:: [hh:mm:ss:mss] Npm config file: /a/globalcache/cache/package.json
+TI:: [hh:mm:ss:mss] Npm config file: '/a/globalcache/cache/package.json' is missing, creating new one...
 TI:: [hh:mm:ss:mss] Updating types-registry npm package...
 TI:: [hh:mm:ss:mss] npm install --ignore-scripts types-registry@latest
 TI:: [hh:mm:ss:mss] Updated types-registry npm package
 TI:: typing installer creation complete
-//// [/a/cache/package.json]
+//// [/a/globalcache/cache/package.json]
 { "private": true }
 
-//// [/a/cache/node_modules/types-registry/index.json]
+//// [/a/globalcache/cache/node_modules/types-registry/index.json]
 {
   "entries": {
     "commander": {
@@ -137,7 +137,7 @@ Info seq  [hh:mm:ss:mss] FileWatcher:: Added:: WatchInfo: /a/package.json 2000 u
 Info seq  [hh:mm:ss:mss] DirectoryWatcher:: Added:: WatchInfo: /a/node_modules 1 undefined Project: /dev/null/inferredProject1* WatchType: Directory location for typing installer
 Info seq  [hh:mm:ss:mss] Elapsed:: *ms DirectoryWatcher:: Added:: WatchInfo: /a/node_modules 1 undefined Project: /dev/null/inferredProject1* WatchType: Directory location for typing installer
 TI:: [hh:mm:ss:mss] Installing typings ["commander"]
-TI:: [hh:mm:ss:mss] Npm config file: /a/cache/package.json
+TI:: [hh:mm:ss:mss] Npm config file: /a/globalcache/cache/package.json
 TI:: [hh:mm:ss:mss] Sending response:
     {
       "kind": "event::beginInstallTypes",
@@ -154,7 +154,7 @@ Info seq  [hh:mm:ss:mss] event:
         "eventId": 1
       }
     }
-TI:: [hh:mm:ss:mss] #1 with cwd: /a/cache/ arguments: [
+TI:: [hh:mm:ss:mss] #1 with cwd: /a/globalcache/cache/ arguments: [
   "@types/commander@tsFakeMajor.Minor"
 ]
 Info seq  [hh:mm:ss:mss] FileWatcher:: Added:: WatchInfo: /a/package.json 250 undefined WatchType: package.json file
@@ -208,12 +208,12 @@ Before running PendingInstalls callback:: count: 1
 TI:: Installation #1 with arguments:: [
   "@types/commander@tsFakeMajor.Minor"
 ] complete with success::true
-//// [/a/cache/node_modules/@types/commander/index.d.ts]
+//// [/a/globalcache/cache/node_modules/@types/commander/index.d.ts]
 export let x: number
 
 
 TI:: [hh:mm:ss:mss] Installed typings ["@types/commander@tsFakeMajor.Minor"]
-TI:: [hh:mm:ss:mss] Installed typing files ["/a/cache/node_modules/@types/commander/index.d.ts"]
+TI:: [hh:mm:ss:mss] Installed typing files ["/a/globalcache/cache/node_modules/@types/commander/index.d.ts"]
 TI:: [hh:mm:ss:mss] Sending response:
     {
       "projectName": "/dev/null/inferredProject1*",
@@ -231,7 +231,7 @@ TI:: [hh:mm:ss:mss] Sending response:
         "maxNodeModuleJsDepth": 2
       },
       "typings": [
-        "/a/cache/node_modules/@types/commander/index.d.ts"
+        "/a/globalcache/cache/node_modules/@types/commander/index.d.ts"
       ],
       "unresolvedImports": [],
       "kind": "action::set"
@@ -259,7 +259,7 @@ Info seq  [hh:mm:ss:mss] event:
           "maxNodeModuleJsDepth": 2
         },
         "typings": [
-          "/a/cache/node_modules/@types/commander/index.d.ts"
+          "/a/globalcache/cache/node_modules/@types/commander/index.d.ts"
         ],
         "unresolvedImports": [],
         "kind": "action::set"
@@ -311,12 +311,12 @@ Info seq  [hh:mm:ss:mss] Finishing updateGraphWorker: Project: /dev/null/inferre
 Info seq  [hh:mm:ss:mss] Project '/dev/null/inferredProject1*' (Inferred)
 Info seq  [hh:mm:ss:mss] 	Files (2)
 	/a/app.js SVC-1-0 ""
-	/a/cache/node_modules/@types/commander/index.d.ts Text-1 "export let x: number"
+	/a/globalcache/cache/node_modules/@types/commander/index.d.ts Text-1 "export let x: number"
 
 
 	app.js
 	  Root file specified for compilation
-	cache/node_modules/@types/commander/index.d.ts
+	globalcache/cache/node_modules/@types/commander/index.d.ts
 	  Root file specified for compilation
 
 Info seq  [hh:mm:ss:mss] -----------------------------------------------
@@ -325,7 +325,7 @@ TI:: [hh:mm:ss:mss] Got install request
       "projectName": "/dev/null/inferredProject1*",
       "fileNames": [
         "/a/app.js",
-        "/a/cache/node_modules/@types/commander/index.d.ts"
+        "/a/globalcache/cache/node_modules/@types/commander/index.d.ts"
       ],
       "compilerOptions": {
         "target": 1,
@@ -350,7 +350,7 @@ TI:: [hh:mm:ss:mss] Inferred typings from unresolved imports: []
 TI:: [hh:mm:ss:mss] Finished typings discovery:
     {
       "cachedTypingPaths": [
-        "/a/cache/node_modules/@types/commander/index.d.ts"
+        "/a/globalcache/cache/node_modules/@types/commander/index.d.ts"
       ],
       "newTypingNames": [],
       "filesToWatch": [
@@ -381,7 +381,7 @@ TI:: [hh:mm:ss:mss] Sending response:
         "maxNodeModuleJsDepth": 2
       },
       "typings": [
-        "/a/cache/node_modules/@types/commander/index.d.ts"
+        "/a/globalcache/cache/node_modules/@types/commander/index.d.ts"
       ],
       "unresolvedImports": [],
       "kind": "action::set"
@@ -407,7 +407,7 @@ Info seq  [hh:mm:ss:mss] event:
           "maxNodeModuleJsDepth": 2
         },
         "typings": [
-          "/a/cache/node_modules/@types/commander/index.d.ts"
+          "/a/globalcache/cache/node_modules/@types/commander/index.d.ts"
         ],
         "unresolvedImports": [],
         "kind": "action::set"
@@ -456,7 +456,7 @@ ScriptInfos::
     version: SVC-1-0
     containingProjects: 1
         /dev/null/inferredProject1* *default*
-/a/cache/node_modules/@types/commander/index.d.ts *new*
+/a/globalcache/cache/node_modules/@types/commander/index.d.ts *new*
     version: Text-1
     containingProjects: 1
         /dev/null/inferredProject1*

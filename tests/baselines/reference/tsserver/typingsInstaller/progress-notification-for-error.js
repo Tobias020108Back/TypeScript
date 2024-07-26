@@ -51,20 +51,20 @@ ScriptInfos::
     containingProjects: 1
         /dev/null/inferredProject1* *default*
 
-TI:: [hh:mm:ss:mss] Global cache location '/a/cache/', safe file path '/safeList.json', types map path /typesMap.json
-TI:: [hh:mm:ss:mss] Processing cache location '/a/cache/'
-TI:: [hh:mm:ss:mss] Trying to find '/a/cache/package.json'...
-TI:: [hh:mm:ss:mss] Finished processing cache location '/a/cache/'
-TI:: [hh:mm:ss:mss] Npm config file: /a/cache/package.json
-TI:: [hh:mm:ss:mss] Npm config file: '/a/cache/package.json' is missing, creating new one...
+TI:: [hh:mm:ss:mss] Global cache location '/a/globalcache/cache/', safe file path '/safeList.json', types map path /typesMap.json
+TI:: [hh:mm:ss:mss] Processing cache location '/a/globalcache/cache/'
+TI:: [hh:mm:ss:mss] Trying to find '/a/globalcache/cache/package.json'...
+TI:: [hh:mm:ss:mss] Finished processing cache location '/a/globalcache/cache/'
+TI:: [hh:mm:ss:mss] Npm config file: /a/globalcache/cache/package.json
+TI:: [hh:mm:ss:mss] Npm config file: '/a/globalcache/cache/package.json' is missing, creating new one...
 TI:: [hh:mm:ss:mss] Updating types-registry npm package...
 TI:: [hh:mm:ss:mss] npm install --ignore-scripts types-registry@latest
 TI:: [hh:mm:ss:mss] Updated types-registry npm package
 TI:: typing installer creation complete
-//// [/a/cache/package.json]
+//// [/a/globalcache/cache/package.json]
 { "private": true }
 
-//// [/a/cache/node_modules/types-registry/index.json]
+//// [/a/globalcache/cache/node_modules/types-registry/index.json]
 {
   "entries": {
     "commander": {
@@ -137,7 +137,7 @@ Info seq  [hh:mm:ss:mss] FileWatcher:: Added:: WatchInfo: /a/package.json 2000 u
 Info seq  [hh:mm:ss:mss] DirectoryWatcher:: Added:: WatchInfo: /a/node_modules 1 undefined Project: /dev/null/inferredProject1* WatchType: Directory location for typing installer
 Info seq  [hh:mm:ss:mss] Elapsed:: *ms DirectoryWatcher:: Added:: WatchInfo: /a/node_modules 1 undefined Project: /dev/null/inferredProject1* WatchType: Directory location for typing installer
 TI:: [hh:mm:ss:mss] Installing typings ["commander"]
-TI:: [hh:mm:ss:mss] Npm config file: /a/cache/package.json
+TI:: [hh:mm:ss:mss] Npm config file: /a/globalcache/cache/package.json
 TI:: [hh:mm:ss:mss] Sending response:
     {
       "kind": "event::beginInstallTypes",
@@ -154,7 +154,7 @@ Info seq  [hh:mm:ss:mss] event:
         "eventId": 1
       }
     }
-TI:: [hh:mm:ss:mss] #1 with cwd: /a/cache/ arguments: [
+TI:: [hh:mm:ss:mss] #1 with cwd: /a/globalcache/cache/ arguments: [
   "@types/commander@tsFakeMajor.Minor"
 ]
 Info seq  [hh:mm:ss:mss] FileWatcher:: Added:: WatchInfo: /a/package.json 250 undefined WatchType: package.json file

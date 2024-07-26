@@ -76,20 +76,20 @@ ScriptInfos::
     containingProjects: 1
         /a/app/test.csproj
 
-TI:: [hh:mm:ss:mss] Global cache location '/a/data', safe file path '/safeList.json', types map path /typesMap.json
-TI:: [hh:mm:ss:mss] Processing cache location '/a/data'
-TI:: [hh:mm:ss:mss] Trying to find '/a/data/package.json'...
-TI:: [hh:mm:ss:mss] Finished processing cache location '/a/data'
-TI:: [hh:mm:ss:mss] Npm config file: /a/data/package.json
-TI:: [hh:mm:ss:mss] Npm config file: '/a/data/package.json' is missing, creating new one...
+TI:: [hh:mm:ss:mss] Global cache location '/a/globalcache/data', safe file path '/safeList.json', types map path /typesMap.json
+TI:: [hh:mm:ss:mss] Processing cache location '/a/globalcache/data'
+TI:: [hh:mm:ss:mss] Trying to find '/a/globalcache/data/package.json'...
+TI:: [hh:mm:ss:mss] Finished processing cache location '/a/globalcache/data'
+TI:: [hh:mm:ss:mss] Npm config file: /a/globalcache/data/package.json
+TI:: [hh:mm:ss:mss] Npm config file: '/a/globalcache/data/package.json' is missing, creating new one...
 TI:: [hh:mm:ss:mss] Updating types-registry npm package...
 TI:: [hh:mm:ss:mss] npm install --ignore-scripts types-registry@latest
 TI:: [hh:mm:ss:mss] Updated types-registry npm package
 TI:: typing installer creation complete
-//// [/a/data/package.json]
+//// [/a/globalcache/data/package.json]
 { "private": true }
 
-//// [/a/data/node_modules/types-registry/index.json]
+//// [/a/globalcache/data/node_modules/types-registry/index.json]
 {
   "entries": {
     "node": {
